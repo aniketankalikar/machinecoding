@@ -1,10 +1,10 @@
-package com.machinecoding.machinecoding;
+package com.machinecoding.bookmyshow;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MachinecodingApplicationTests {
+class BookmyshowApplicationTests {
 
     @Test
     void contextLoads() {
