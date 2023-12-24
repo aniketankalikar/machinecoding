@@ -1,27 +1,29 @@
-package models;
+package com.example.bookmyshow.model;
 
-import enums.SeatStatus;
+import com.example.bookmyshow.enums.SeatStatus;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class ShowSeat extends BaseModel{
 
     @ManyToOne
-    @JoinColumn(name="show_id")
+    @JoinColumn(name = "show_id")
     private Show show;
 
     @ManyToOne
+    @JoinColumn(name = "seat_id")
     private Seat seat;
 
     @Enumerated
     private SeatStatus status;
+
 }

@@ -1,7 +1,7 @@
 package com.example.springbootmysql.repositories;
 
-import com.example.springbootmysql.model.Customer;
+import com.example.springbootmysql.model.Cust;
 import org.springframework.data.repository.CrudRepository;
 
-public interface CustomerRepository extends CrudRepository<Customer,Integer> {
+public interface CustomerRepository extends CrudRepository<Cust,Integer> {
 }

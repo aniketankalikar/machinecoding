@@ -1,38 +1,33 @@
-package models;
+package com.example.bookmyshow.model;
 
-import enums.Language;
-import enums.MovieFeature;
+import com.example.bookmyshow.enums.Language;
+import com.example.bookmyshow.enums.MovieFeature;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.OneToMany;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class Movie extends  BaseModel{
+public class Movie extends BaseModel{
 
     private String name;
     private Double rating;
 
-    @OneToMany(mappedBy = "movie")
-    private List<Show> shows = new ArrayList<>();
-
-    @Enumerated
     @ElementCollection
+    @Enumerated
     private List<Language> languages = new ArrayList<>();
 
     @ElementCollection
     @Enumerated
     private List<MovieFeature> features = new ArrayList<>();
-
 
 
 }

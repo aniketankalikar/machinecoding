@@ -1,27 +1,25 @@
-package models;
+package com.example.bookmyshow.model;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
 @Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Customer extends BaseModel{
 
     private String fullName;
     private String city;
     private String phoneNumber;
-
     private String email;
 
     @OneToOne
     private User user;
-
-
 }

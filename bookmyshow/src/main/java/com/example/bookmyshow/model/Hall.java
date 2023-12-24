@@ -1,21 +1,18 @@
-package models;
+package com.example.bookmyshow.model;
 
-import enums.MovieFeature;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.OneToMany;
-import lombok.*;
+import com.example.bookmyshow.enums.MovieFeature;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
 @Entity
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
-@Builder(toBuilder = true)
+@AllArgsConstructor
 public class Hall extends BaseModel{
 
     private String name;
@@ -23,7 +20,7 @@ public class Hall extends BaseModel{
     @OneToMany(mappedBy = "hall")
     private List<Seat> seats = new ArrayList<>();
 
-    @Enumerated
     @ElementCollection
+    @Enumerated
     private List<MovieFeature> features = new ArrayList<>();
 }

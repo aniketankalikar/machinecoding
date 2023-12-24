@@ -1,27 +1,27 @@
-package models;
+package com.example.bookmyshow.model;
 
-import enums.SeatType;
+import com.example.bookmyshow.enums.SeatType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
-@Builder
+@NoArgsConstructor
 public class Seat extends BaseModel{
 
     private Integer rowNo;
-    private Integer colNo;
+    private Integer columnNo;
 
     @Enumerated
     private SeatType seatType;
 
     @ManyToOne
-    @JoinColumn(name="hall_id")
+    @JoinColumn(name = "hall_id")
     private Hall hall;
 }

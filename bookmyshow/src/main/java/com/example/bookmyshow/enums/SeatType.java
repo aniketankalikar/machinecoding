@@ -1,4 +1,4 @@
-package enums;
+package com.example.bookmyshow.enums;
 
 public enum SeatType {
 
@@ -6,4 +6,5 @@ public enum SeatType {
     PLATINUM,
     GOLD,
     SILVER,
+
 }

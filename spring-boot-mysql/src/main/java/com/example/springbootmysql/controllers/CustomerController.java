@@ -2,7 +2,7 @@ package com.example.springbootmysql.controllers;
 
 
 import com.example.springbootmysql.dtos.CustomerDTO;
-import com.example.springbootmysql.model.Customer;
+import com.example.springbootmysql.model.Cust;
 import com.example.springbootmysql.repositories.CustomerRepository;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -22,9 +22,9 @@ public class CustomerController {
     }
 
     @PostMapping(path = "/add")
-    public @ResponseBody String add(@Validated @RequestBody Customer userRequest)
+    public @ResponseBody String add(@Validated @RequestBody Cust userRequest)
     {
-        Customer customer = new Customer();
+        Cust customer = new Cust();
         customer.setName(userRequest.getName());
         customer.setEmail(userRequest.getEmail());
         customerRepository.save(customer);
@@ -35,7 +35,7 @@ public class CustomerController {
     public List<CustomerDTO> getAllCustomers()
     {
 
-        List<Customer> customers = (List<Customer>) customerRepository.findAll();
+        List<Cust> customers = (List<Cust>) customerRepository.findAll();
 
         List<CustomerDTO> customerDTOLIst = customers.stream().map(p->new CustomerDTO(p.getId(),p.getName(),p.getEmail())).collect(Collectors.toList());
 
