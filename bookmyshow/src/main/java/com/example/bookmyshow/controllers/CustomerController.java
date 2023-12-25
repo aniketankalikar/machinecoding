@@ -6,10 +6,7 @@ import com.example.bookmyshow.model.Customer;
 import com.example.bookmyshow.services.CustomerService;
 import lombok.AllArgsConstructor;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/customer")
@@ -28,5 +25,10 @@ public class CustomerController {
     private void validate(CustomerDTO request) {
         if(!StringUtils.hasLength(request.getEmail()) )
             throw new InvalidCustomerException();
+    }
+
+    @GetMapping("/fetch/{id}")
+    public Customer getCustomer(@PathVariable Long id) {
+        return customerService.getCustomer(id);
     }
 }
