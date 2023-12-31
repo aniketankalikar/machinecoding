@@ -3,7 +3,9 @@ package com.example.bookmyshow.pricingstrategy;
 import com.example.bookmyshow.enums.SeatType;
 import com.example.bookmyshow.model.Booking;
 import com.example.bookmyshow.model.ShowSeat;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SeatBasedPricingStrategy implements PricingStrategy {
     @Override
     public Double calculatePrice(Booking booking) {

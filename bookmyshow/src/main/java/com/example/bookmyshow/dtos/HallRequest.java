@@ -16,7 +16,7 @@ import java.util.Map;
 @Data
 public class HallRequest implements Serializable {
 
-   private String name;
+    private String name;
     private List<MovieFeature> features = new ArrayList<>();
     private Map<SeatType, List<SeatPosition>> seatRanges = new HashMap<>();
 

@@ -21,10 +21,10 @@ public class ShowController {
     }
 
     @PostMapping("/show/add")
-    public Show createShow(@RequestBody ShowRequest request)
+    public ShowRequest createShow(@RequestBody ShowRequest request)
     {
-
-        return showService.createShow(request);
+        showService.createShow(request);
+        return request;
     }
 
 }

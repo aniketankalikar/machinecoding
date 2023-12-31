@@ -18,6 +18,6 @@ public class SeatService {
     }
 
     public List<Seat> getAll(Long hallId) {
-        return seatRepository.findAllByHall_Id(hallId);
+        return seatRepository.findAllByHallId(hallId);
     }
 }

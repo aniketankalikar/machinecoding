@@ -9,6 +9,7 @@ import com.example.bookmyshow.model.Show;
 import com.example.bookmyshow.model.ShowSeat;
 import com.example.bookmyshow.pricingstrategy.PricingStrategy;
 import com.example.bookmyshow.repositories.BookingRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
+@AllArgsConstructor
 public class BookingService {
 
     private BookingRepository bookingRepository;

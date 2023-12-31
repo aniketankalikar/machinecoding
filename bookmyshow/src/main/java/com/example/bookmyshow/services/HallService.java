@@ -8,6 +8,7 @@ import com.example.bookmyshow.model.Seat;
 import com.example.bookmyshow.repositories.HallRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -29,10 +30,13 @@ public class HallService {
                 .features(request.getFeatures())
                 .build();
 
-        Hall initialHall = hallRepository.save(hall);
-        List<Seat> seats = toSeats(initialHall, request.getSeatRanges());
-        List<Seat> savedSeats = seatService.saveAll(seats);
-        return hallRepository.save(initialHall.toBuilder().seats(savedSeats).build());
+        hall = hallRepository.save(hall);
+        List<Seat> seats = toSeats(hall, request.getSeatRanges());
+        if(!CollectionUtils.isEmpty(seats))
+        {
+            List<Seat> savedSeats = seatService.saveAll(seats);
+        }
+        return hall;
     }
 
     public static List<Seat> toSeats(Hall hall, Map<SeatType, List<SeatPosition>> seatPositions) {

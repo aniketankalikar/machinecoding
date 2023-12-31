@@ -19,10 +19,15 @@ public class Hall extends BaseModel{
 
     private String name;
 
-    @OneToMany(mappedBy = "hall")
+    @OneToMany(mappedBy = "hall", fetch = FetchType.EAGER)
     private List<Seat> seats = new ArrayList<>();
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated
     private List<MovieFeature> features = new ArrayList<>();
+
+    public String toString()
+    {
+        return "";
+    }
 }
